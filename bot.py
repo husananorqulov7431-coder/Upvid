@@ -7,7 +7,6 @@ import re
 import shutil
 import subprocess
 import tempfile
-import time
 from contextlib import suppress
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -104,7 +103,7 @@ def download_video(url: str, workdir: Path, progress: dict) -> tuple[dict, Path]
             progress["phase"] = "postprocess"
 
     options = {
-        "format": "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]/bv*+ba/b",
+        "format": "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/bestvideo+bestaudio/best",
         "merge_output_format": "mp4",
         "outtmpl": str(workdir / "%(title).120B-%(id)s.%(ext)s"),
         "noplaylist": True,
