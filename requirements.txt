@@ -1,0 +1,2 @@
+python-telegram-bot>=21.6,<23.0
+yt-dlp[default]>=2025.9.26
